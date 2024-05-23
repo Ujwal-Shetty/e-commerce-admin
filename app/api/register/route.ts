@@ -4,7 +4,7 @@ import prisma from '@/prisma/prismadb'
 import { NextResponse } from 'next/server'
 import { connectToDatabase } from '@/libs/server-helpers';
 
-export async function POST(request){
+export async function POST(request:any){
 try{
     const { name, email, password } = await request.json();
 
