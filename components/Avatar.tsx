@@ -23,7 +23,7 @@ function Avatar() {
          <img
          ref={imgRef}
          onClick={()=>setToggleDropDown((prev)=>!prev)}
-         className='rounded-full h-7 w-7 object-cover cursor-pointer hover:opacity-90'
+         className='rounded-full h-8 w-8 border-2 border-slate-600 object-cover cursor-pointer hover:opacity-90'
          src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
          alt='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
        />
