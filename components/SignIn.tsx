@@ -5,7 +5,8 @@ import Link from 'next/link';
 import React,{useState} from 'react'
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import Router from "next/router";
+import { redirect } from 'next/navigation'
+
 
 
 export default function page() {
@@ -28,8 +29,8 @@ export default function page() {
                       alert('Logged in successfully!')
                     }
                 } )
-                router.push('/')
-                Router.reload() 
+                redirect('/dashboard')
+                 
                          
        }
        

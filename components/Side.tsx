@@ -21,13 +21,13 @@ function Side() {
         },
         {
         name:"Products",
-        link:'/view-products',
+        link:'/products',
         
         icon:<BsGift className='mr-2'/>
         },
         {
         name:"Orders",
-        link:'/view-orders',
+        link:'/orders',
         
         icon:<MdOutlineProductionQuantityLimits className='mr-2' />
         },
@@ -39,7 +39,7 @@ function Side() {
         },
         {
         name:"Category",
-        link:'/view-categories',
+        link:'/category',
         
         icon:<MdOutlineCategory className='mr-2'/>
         },    

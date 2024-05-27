@@ -13,6 +13,7 @@ export default function SignUp() {
         password: ""
         
     })
+    console.log(data)
     const registerUser = async (e) => {
         e.preventDefault()
         axios.post('/api/register', data)
