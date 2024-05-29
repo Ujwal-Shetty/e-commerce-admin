@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { MdDeleteOutline } from "react-icons/md";
 import axios from "axios";
 import { useRouter } from 'next/navigation';
-import { redirect } from 'next/navigation'
 
 function AddCategory() {
     const router=useRouter()
@@ -41,7 +40,8 @@ function AddCategory() {
         axios.post('/api/category', data)
         .then(() => alert('Category has been added!'))
         .catch(() => alert('Something went wrong!'))
-        redirect('/dashboard')
+        router.push('/')
+        router.push('/category')
      
    }
   return (

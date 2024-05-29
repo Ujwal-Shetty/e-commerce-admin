@@ -16,36 +16,31 @@ function Side() {
         {
         name:"Dashboard",
         link:'/dashboard',
-        
         icon:<RxDashboard className='mr-2' />
         },
         {
         name:"Products",
         link:'/products',
-        
         icon:<BsGift className='mr-2'/>
         },
         {
         name:"Orders",
         link:'/orders',
-        
         icon:<MdOutlineProductionQuantityLimits className='mr-2' />
         },
         {
         name:"Inventory",
         link:'/intentory',
-        
         icon:<MdOutlineInventory2 className='mr-2' />
         },
         {
         name:"Category",
         link:'/category',
-        
         icon:<MdOutlineCategory className='mr-2'/>
         },    
     ];
   return (
-    <div className='h-screen w-72 bg-slate-700 rounded-xl flex flex-col items-center'>
+    <div className='h-lvh w-72 bg-slate-700 rounded-xl flex flex-col items-center'>
         <h1 className='w-full  h-12 flex justify-center  items-center cursor-pointer mb-16 pt-5 text-xl'>
          <span className='text-red-300'>ECOMMERCE</span>
          <span className='text-slate-100'>Admin</span>
