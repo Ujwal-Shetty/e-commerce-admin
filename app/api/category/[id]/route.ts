@@ -21,14 +21,14 @@ export const GET = async (request, { params }) => {
         )
     }
 
-    return NextResponse.json(post);
+    return NextResponse.json(category);
   } catch (err) {
     return NextResponse.json({ message: "GET Error", err }, { status: 500 });
   }
 };
 
 
-export const PATCH = async (request, {params}) => {
+export const PUT = async (request, {params}) => {
   try {
       const body = await request.json();
       const {name, property} = body;

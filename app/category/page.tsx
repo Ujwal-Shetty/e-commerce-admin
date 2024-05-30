@@ -82,7 +82,10 @@ export default async function ProductssList() {
                             <FaRegEye  className='text-xl hover:cursor-pointer'/>
                             </div>
                             <div>
-                            <FaEdit className='text-green-700 text-xl hover:cursor-pointer'/>
+                              <Link href={`/category/update-category/${rs.id}`}>
+                                <FaEdit className='text-green-700 text-xl hover:cursor-pointer'/>
+                              </Link>
+                           
                             </div>
                             <div>
                              <RemoveCateBtn id={rs.id}/>
