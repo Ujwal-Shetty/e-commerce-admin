@@ -40,8 +40,10 @@ function AddCategory() {
         axios.post('/api/category', data)
         .then(() => alert('Category has been added!'))
         .catch(() => alert('Something went wrong!'))
+        
         router.push('/')
         router.push('/category')
+        router.refresh();
      
    }
   return (

@@ -34,7 +34,7 @@ try{
 
 export async function GET() {
     try{
-        await connectToDatabase;
+        await connectToDatabase();
         const category = await prisma.category.findMany()
           console.log(category)
         return NextResponse.json({ category });
@@ -42,4 +42,6 @@ export async function GET() {
         console.log(error)
     }
     }
+    
+
     
