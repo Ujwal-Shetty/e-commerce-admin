@@ -1,5 +1,4 @@
 //@ts-nocheck
-
 import Link from 'next/link'
 import React,{useState,useEffect} from 'react'
 import { FaEdit } from "react-icons/fa";
@@ -52,7 +51,7 @@ export default async function ProductssList() {
                     
                     <th className=' text-start'>Name</th>
                     <th  className=' text-start'>Properties</th>
-                    <th className='text-start'>Actions</th>
+                    <th className='text-end mr-3'>Actions</th>
                     
                     <th />
                 </tr>
@@ -76,7 +75,7 @@ export default async function ProductssList() {
                      
       
                         <td>
-                          <div className='flex gap-4'>
+                          <div className='flex gap-4 justify-end'>
                           <div className='text-blue-700'>
                           
                             <FaRegEye  className='text-xl hover:cursor-pointer'/>

@@ -25,17 +25,21 @@ model User {
 
 model Category {
   id             String  @id @default(auto()) @map("_id") @db.ObjectId
-  name           String? @unique
-  property       String[]
-
+  name           String @unique
+  property       String[] 
+  products       Product[]
 }
 
 model Product {
   id                String  @id @default(auto()) @map("_id") @db.ObjectId
-  name              String? @unique
-  description       String? 
-  productImage      String?
-  regularprice      Int?
-  discountprice     Int
-
+  name              String @unique
+  description       String 
+  productImage      String[]
+  regularPrice      Int
+  discountPrice     Int?
+  CategoryName      String
+  varients          String[]
+  category          Category   @relation(fields: [categoryId], references: [id])
+  categoryId        String @db.ObjectId
+  
 }
