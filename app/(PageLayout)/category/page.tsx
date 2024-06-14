@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import axios from 'axios';
 import RemoveCateBtn from '@/components/category/RemoveCateBtn';
 import { AiFillWallet } from 'react-icons/ai';
+import './styles.module.css'
 
 const getCategoryList =async ()=>{
   try {
@@ -38,13 +39,18 @@ export default async function ProductssList() {
                 <div className="flex justify-between items-center">
                     <h1 className="font-bold  text-2xl">Category</h1>
                 </div>
-                <div className="text-right mb-5">
-                    <Link className="w-auto  bg-black text-white p-3 rounded-xl" href={"/category/add-category"}>
+                
+                <div className=" mb-5 flex items-end justify-end">
+
+                  <div className="bg-black text-white p-3 rounded-full w-36 text-center">
+                  <Link  href={"/category/add-category"}>
                         Add Category
                     </Link>
+                  </div>
+                   
                 </div>
 
-              <div className='border-2 p-3 rounded-xl overflow-auto h-96'>
+              <div className='border-2 p-3 rounded-xl overflow-auto h-96 no-srcollbar'>
                 <table className=" w-full ">
                 <thead className=' w-full justify-around  border-b-2'>
                 <tr className=''>

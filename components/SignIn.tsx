@@ -29,7 +29,7 @@ export default function page() {
                       alert('Logged in successfully!')
                     }
                 } )
-                redirect('/dashboard')
+                router.push('/dashboard')
                  
                          
        }

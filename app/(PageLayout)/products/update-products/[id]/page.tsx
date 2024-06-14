@@ -106,6 +106,7 @@ const handleRemoveImage = (index:any) => {
           throw new Error("failed to fetch catrgory data")
         }
         const data=await response.json()
+        console.log(data)
         setFormData({name:data.name, 
                     varients:data.varients,
                     productImage:data.productImage,
@@ -114,7 +115,7 @@ const handleRemoveImage = (index:any) => {
                     regularPrice:data.regularPrice,
                     description:data.description
                     })
-        setVal(data.property)
+       
 
       }catch(err){
          console.log(err)
@@ -122,6 +123,8 @@ const handleRemoveImage = (index:any) => {
     };
     fetchData()
   },[])
+
+ 
 
   useEffect(()=>{
     const fetchCategoryData=async()=>{
@@ -163,13 +166,12 @@ const handleRemoveImage = (index:any) => {
     const handleSubmit = async (e:any) => {
       e.preventDefault();
           axios.put(`/api/products/${params.id}`, formData)
-          .then(() => alert('Product has been added!'))
+          .then(() => alert('Product has been Updated!'))
           .catch(() => alert('Something went wrong!'))
           
           router.push('/')
           router.push('/products')
           router.refresh();
-       
      }
  
    
@@ -191,7 +193,7 @@ const handleRemoveImage = (index:any) => {
              maxLength='62'
              minLength='10'
              required 
-             value={data.name}
+             value={formData.name}
            />
         </div>
          <div>
@@ -203,6 +205,7 @@ const handleRemoveImage = (index:any) => {
              id='description'
              onChange={handleChange}
              required  
+             value={formData.description}
            />
          </div>
          <div>
@@ -215,9 +218,9 @@ const handleRemoveImage = (index:any) => {
                   <option selected 
                   disabled="disabled"
                   className='text-slate-200 hidden'
-                  >Choose category
+                  >{formData.CategoryName}
                   </option>
-                    <option >Uncategorized</option>
+                    
                     {categoryData.map(opt=>
                      <option 
                          className='p-3 border border-gray-300 rounded-lg w-full h-10'>
@@ -255,6 +258,7 @@ const handleRemoveImage = (index:any) => {
              max='1000000000'
              onChange={handleChange}
              className='p-3 border border-gray-300 rounded-lg w-full'
+             value={formData.regularPrice}
            />
          </div>
  
@@ -266,7 +270,7 @@ const handleRemoveImage = (index:any) => {
              min='0'
              max='1000000000'
              onChange={handleChange}
-             
+             value={formData.discountPrice}
              className='p-3 border border-gray-300 rounded-lg w-full'
            />
          </div>
@@ -326,7 +330,7 @@ const handleRemoveImage = (index:any) => {
                
                className='p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
               >
-               Add Product
+               Update Product
             </button>
       
      </div>

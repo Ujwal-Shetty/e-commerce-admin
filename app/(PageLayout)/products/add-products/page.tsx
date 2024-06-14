@@ -30,14 +30,19 @@ function AddProducts() {
         productImage:[],
         varients:[]
     })
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState(false);
 
 const router=useRouter() 
 const filtered =someData.filter(sa=>sa.name===selectedData).map((res)=>res.property).map((rs)=>rs)
+
 
 console.log(filtered)
 console.log(formData)
 
 formData.varients=["no varients",'']
+formData.regularPrice=+formData.regularPrice
+formData.discountPrice=+formData.discountPrice
 
 const handleImageSubmit = (e) => {
     if (files.length > 0 && files.length + formData.productImage.length < 7) {
@@ -138,13 +143,29 @@ const handleRemoveImage = (index:any) => {
 
     const handleSubmit = async (e:any) => {
       e.preventDefault();
-          axios.post('/api/products', formData)
+      try{
+        if (formData.productImage.length < 1)   
+            return setError('You must upload at least one image')
+          
+       if (+formData.regularPrice < +formData.discountPrice)
+            return setError('Discount price must be lower than regular price');
+        setLoading(true);
+        setError(false);
+        axios.post('/api/products', formData)
           .then(() => alert('Product has been added!'))
           .catch(() => alert('Something went wrong!'))
-          
+
+         
           router.push('/')
           router.push('/products')
           router.refresh();
+
+      }catch(error){
+        setError(error.message);
+        setLoading(false);
+
+      }
+          
        
      }
  
@@ -187,12 +208,12 @@ const handleRemoveImage = (index:any) => {
             
              id='CategoryName'
                 className='p-3 border border-gray-300 rounded-lg w-full'>
-                  <option selected 
+                  <option selected
                   disabled="disabled"
                   className='text-slate-200 hidden'
                   >Choose category
                   </option>
-                    <option >Uncategorized</option>
+                    
                     {categoryData.map(opt=>
                      <option 
                          className='p-3 border border-gray-300 rounded-lg w-full h-10'>
@@ -230,6 +251,7 @@ const handleRemoveImage = (index:any) => {
              max='1000000000'
              onChange={handleChange}
              className='p-3 border border-gray-300 rounded-lg w-full'
+             value={formData.regularPrice}
            />
          </div>
  
@@ -241,7 +263,7 @@ const handleRemoveImage = (index:any) => {
              min='0'
              max='1000000000'
              onChange={handleChange}
-             
+             value={formData.discountPrice}
              className='p-3 border border-gray-300 rounded-lg w-full'
            />
          </div>
@@ -296,6 +318,7 @@ const handleRemoveImage = (index:any) => {
             ))}
 
          </div>
+         <p>{error}</p>
  
             <button
                

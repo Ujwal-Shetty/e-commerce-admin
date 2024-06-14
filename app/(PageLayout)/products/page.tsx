@@ -1,14 +1,10 @@
 //@ts-nocheck
 
 import Link from 'next/link'
-import React,{useState,useEffect} from 'react'
 import { FaEdit } from "react-icons/fa";
-import { MdDeleteOutline } from "react-icons/md"
 import { FaRegEye } from "react-icons/fa";
-import { useRouter } from "next/navigation";
-import axios from 'axios';
 import RemoveProBtn from '@/components/product/RemoveProBtn';
-import { AiFillWallet } from 'react-icons/ai';
+
 
 const getProductsList =async ()=>{
   try {
@@ -45,7 +41,7 @@ export default async function ProductssList() {
                     </Link>
                 </div>
 
-              <div className='border-2 p-3 rounded-xl overflow-auto h-96'>
+              <div className='border-2 p-3 rounded-xl overflow-auto h-96 no-scrollbar'>
                 <table className=" w-full ">
                 <thead className=' w-full justify-around  border-b-2'>
                 <tr className=''>

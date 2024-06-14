@@ -32,6 +32,7 @@ export const PUT = async (request, {params}) => {
   try {
       const body = await request.json();
       const {name, property} = body;
+      console.log( property)
 
       const {id} = params;
       await connectToDatabase();

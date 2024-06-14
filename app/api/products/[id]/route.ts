@@ -35,7 +35,8 @@ export const PUT = async (request, {params}) => {
 
       const {id} = params;
       await connectToDatabase();
-      
+      console.log(id)
+
       const cat = await prisma.category.findUnique({
         where: {
             name:CategoryName
@@ -50,7 +51,8 @@ export const PUT = async (request, {params}) => {
           where: {
               id
           },
-          data: name,
+          data: { 
+          name,
           description,
           productImage,
           regularPrice,
@@ -62,7 +64,8 @@ export const PUT = async (request, {params}) => {
                   id:cat.id
               }
           }
-      })
+      }
+    })
 
       if(!updateProduct) {
           return NextResponse.json(
@@ -83,10 +86,38 @@ export const DELETE = async (request,{ params }) => {
     try {
       const { id } = params;
       await connectToDatabase();
+      console.log(id)
       
       await prisma.product.delete({
           where: {
               id
+          }
+      });
+  
+      return NextResponse.json("Product has been deleted");
+    } catch (err) {
+      return NextResponse.json({ message: "DELETE Error", err }, { status: 500 });
+    }
+  };
+
+export const PATCH = async (request,{ params }) => {
+ 
+    try {
+      const quantityValue = await request.json();
+      
+      
+     
+      const { id } = params;
+      await connectToDatabase();
+      console.log(quantityValue)
+      console.log(id)
+      
+      await prisma.product.update({
+          where: {
+              id
+          },
+          data:{
+            intentoryQuantity:quantityValue
           }
       });
   

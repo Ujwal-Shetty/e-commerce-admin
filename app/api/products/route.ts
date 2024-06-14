@@ -1,6 +1,7 @@
 import prisma from '@/prisma/prismadb'
 import { NextResponse } from 'next/server'
 import { connectToDatabase } from '@/libs/server-helpers';
+import { disconnect } from 'process';
 
 
 export async function POST(request:any){
@@ -19,10 +20,12 @@ try{
     if(exist) {
         throw new Error('category already exists')
     }
+
     
     const cat = await prisma.category.findUnique({
         where: {
             name:CategoryName
+            
         },
         select:{
           id:true,

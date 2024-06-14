@@ -18,7 +18,7 @@ export default function Navbar() {
      
       <div className='flex justify-end gap-4 sm:gap-10 items-center w-full'>  
         <form
-          className='bg-slate-200 p-3 rounded-lg flex items-center'
+          className='bg-slate-200 p-3 rounded-full flex items-center'
         >
           <input
             type='text'
