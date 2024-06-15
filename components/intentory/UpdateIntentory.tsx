@@ -71,7 +71,7 @@ export default function UpdateIntentory(props) {
                                  
                                  <FaPlus
                                  onClick={handleIncrement}
-                                className='text-center text-black bg-white w-full h-full p-2 rounded-l-full cursor-pointer'/>
+                                className='text-center text-black bg-white w-full h-full p-2 rounded-l-full cursor-pointer hover:bg-slate-900 hover:text-white'/>
                                        
                                 
                                 <input
@@ -83,7 +83,7 @@ export default function UpdateIntentory(props) {
                                    />
                                 <FaMinus
                                 onClick={handleDecrement}
-                                className='text-center text-black bg-white w-full h-full  p-2 rounded-r-full cursor-pointer '/>
+                                className='text-center text-black bg-white w-full h-full  p-2 rounded-r-full cursor-pointer hover:bg-slate-900 hover:text-white '/>
                                 </div>
 
                                 <div className='flex items-center justify-center'>

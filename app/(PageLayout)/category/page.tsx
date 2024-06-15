@@ -10,6 +10,9 @@ import RemoveCateBtn from '@/components/category/RemoveCateBtn';
 import { AiFillWallet } from 'react-icons/ai';
 import './styles.module.css'
 
+
+
+
 const getCategoryList =async ()=>{
   try {
  const res = await fetch("http://localhost:3000/api/category", {
@@ -28,8 +31,10 @@ const getCategoryList =async ()=>{
    
 }
 
-export default async function ProductssList() {
+export default async function ProductssList({ searchParams }:{ searchParams :string}) {
 
+  
+  const params = searchParams.search
   const {category}=await getCategoryList()
 
   return (
@@ -64,7 +69,14 @@ export default async function ProductssList() {
                 </thead>
                 <tbody>
                   
-                  {category.map((rs) => (
+                  {category
+                    .filter((rs:any)=>{
+                      if(params===undefined){
+                        return rs
+                      }
+                      return params.toLowerCase() === '' ? rs:rs.name.toLowerCase().includes(params)
+                    })
+                  .map((rs) => (
                   
                       <tr className="hover:bg-slate-200 p-3 h-12 border-b-2" key={rs._id} >
                         

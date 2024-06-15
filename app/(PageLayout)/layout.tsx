@@ -7,6 +7,7 @@ import Side from "@/components/Side";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import SignIn from '@/components/SignIn'
+import BottomNavBar from "@/components/BottomNavBar";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,9 +29,9 @@ export default  async function RootLayout({
         <Provider>
       
         <div className='flex flex-row'>
-        <div className="m-3 sm:block hidden">
-          <Side/>
-        </div>
+          <div className="m-3 sm:block hidden">
+            <Side/>
+          </div>
 
         <div className="w-full">
           <div className="mt-3 mb-3 mr-3">
@@ -39,6 +40,11 @@ export default  async function RootLayout({
           <div>
             {children}
           </div>
+          <div className="h-20 w-full fixed bottom-0 p-2 sm:hidden block">
+          <BottomNavBar/>
+          </div>
+            
+          
         </div>
       </div>
         </Provider>

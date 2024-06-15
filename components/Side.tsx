@@ -53,7 +53,7 @@ function Side() {
                 <Link
                 key={herf.name}
                 href={herf.link}
-                className={`${isActive ? 'bg-slate-500 text-white justify-center' :''} text-slate-200 w-full hover:bg-opacity-50 hover:bg-slate-300 hover:text-black hover:shadow-md h-12 flex justify-start  items-center cursor-pointer pr-8 pl-8 rounded-xl`}
+                className={`${isActive ? 'bg-slate-500 text-white justify-center' :''} text-slate-200 w-full hover:bg-opacity-50 hover:bg-slate-300 hover:text-black hover:shadow-md h-12 flex justify-start  items-center cursor-pointer pr-8 pl-8 rounded-full`}
                 >
                  {herf.icon}{herf.name}
                 </Link>

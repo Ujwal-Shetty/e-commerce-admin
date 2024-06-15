@@ -1,9 +1,10 @@
 //@ts-nocheck
 import Link from 'next/link'
 import React from 'react'
-import { FaSearch } from 'react-icons/fa';
+
 import Avatar from './Avatar';
 import { IoMdNotificationsOutline } from "react-icons/io"
+import SearchBar from './SearchBar';
 
 export default function Navbar() {
 
@@ -17,20 +18,9 @@ export default function Navbar() {
       </div>
      
       <div className='flex justify-end gap-4 sm:gap-10 items-center w-full'>  
-        <form
-          className='bg-slate-200 p-3 rounded-full flex items-center'
-        >
-          <input
-            type='text'
-            placeholder='Search...'
-            className='bg-transparent focus:outline-none w-36 sm:w-64'
-          />
-          <button>
-            <FaSearch className='text-slate-600' />
-          </button>
-        </form>
+       <SearchBar/>
          <button>
-         <IoMdNotificationsOutline />
+         <IoMdNotificationsOutline className='text-2xl'/>
          </button>
 
           <Avatar/>

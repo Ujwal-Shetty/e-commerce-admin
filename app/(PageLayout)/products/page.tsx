@@ -1,10 +1,8 @@
 //@ts-nocheck
-
 import Link from 'next/link'
 import { FaEdit } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
 import RemoveProBtn from '@/components/product/RemoveProBtn';
-
 
 const getProductsList =async ()=>{
   try {
@@ -24,13 +22,19 @@ const getProductsList =async ()=>{
    
 }
 
-export default async function ProductssList() {
+export default async function ProductssList({ searchParams }:{ searchParams :string}) {
 
  const {products}=await getProductsList()
 
+ const params = searchParams.search
+ console.log(params)
+
+ 
+
+
   return (
     
-      <div className=" p-5 ">
+      <div className="p-5 ">
         
                 <div className="flex justify-between items-center">
                     <h1 className="font-bold  text-2xl">Products</h1>
@@ -55,7 +59,14 @@ export default async function ProductssList() {
                 </thead>
                 <tbody>
                   
-                  {products.map((rs) => (
+                  {products
+                  .filter((rs:any)=>{
+                    if(params===undefined){
+                      return rs
+                    }
+                    return params.toLowerCase() === '' ? rs:rs.name.toLowerCase().includes(params)
+                  })
+                  .map((rs:any) => (
                   
                       <tr className="hover:bg-slate-200 p-3 h-12 border-b-2" key={rs._id}>
                         

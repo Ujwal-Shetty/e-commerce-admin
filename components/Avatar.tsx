@@ -19,16 +19,16 @@ function Avatar() {
   return (
     <div className=' flex relative'>
     {session ? (
-   <div className='flex'>
+      <div className='flex'>
          <img
          ref={imgRef}
          onClick={()=>setToggleDropDown((prev)=>!prev)}
-         className='rounded-full h-8 w-8 border-2 border-slate-600 object-cover cursor-pointer hover:opacity-90'
+         className=' shadow-lg rounded-full h-8 w-8 border-2 border-slate-600 object-cover cursor-pointer hover:opacity-90'
          src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
          alt='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
        />
        {toggleDropDown && (
-         <div ref={menuRef} className='absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white border-2 border-slate min-w-[210px] flex flex-col gap-5 justify-center items-center'>
+         <div ref={menuRef} className='absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white border-2 border-slate min-w-[210px] flex flex-col gap-5 justify-center items-center shadow-xl'>
              <img
        
          className='rounded-full h-14 w-14 object-cover'
@@ -41,27 +41,11 @@ function Avatar() {
            onClick={()=>setToggleDropDown(false)}
            >View Profile
            </Link>
+           <span className='text-red-700 text-lg'>
+            Sign out
+           </span>
 
-           <Link
-           href='/view-products'
-           className='text-lg text-gray-700 hover:text-gray-500 font-medium'
-           onClick={()=>setToggleDropDown(false)}
-           >Products
-           </Link>
-
-           <Link
-           href='/intentory'
-           className='text-lg text-gray-700 hover:text-gray-500 font-medium'
-           onClick={()=>setToggleDropDown(false)}
-           >Intentory
-           </Link>
-
-           <Link
-           href='/view-categories'
-           className='text-lg text-gray-700 hover:text-gray-500 font-medium'
-           onClick={()=>setToggleDropDown(false)}
-           >Categories
-           </Link>
+           
 
            </div>
 

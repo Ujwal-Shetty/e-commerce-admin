@@ -23,22 +23,21 @@ const getProductsList =async ()=>{
 
 
 
-export default async function ProductssList() {
+export default async function ProductssList({ searchParams }:{ searchParams :string}) {
 
  const {products}=await getProductsList()
+ const params = searchParams.search
 
   return (
     
       <div className=" p-5 ">
         
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center mb-5">
                     <h1 className="font-bold  text-2xl">Intentory</h1>
                 </div>
-                <div className="text-right mb-5">
-                    
-                </div>
+               
 
-              <div className='border-2 p-3 rounded-xl overflow-auto h-96 no-scrollbar'>
+              <div className='border-2 p-3 rounded-xl overflow-auto h-[37rem] sm:h-96 no-scrollbar'>
                 <table className=" w-full ">
                 <thead className=' w-full justify-around  border-b-2'>
                 <tr className=''>
@@ -53,11 +52,18 @@ export default async function ProductssList() {
                 </thead>
                 <tbody>
                   
-                  {products.map((rs) => (
+                  {products
+                    .filter((rs:any)=>{
+                      if(params===undefined){
+                        return rs
+                      }
+                      return params.toLowerCase() === '' ? rs:rs.name.toLowerCase().includes(params)
+                    })
+                  .map((rs) => (
                   
                       <tr className="hover:bg-slate-200 p-3 h-12 border-b-2" key={rs._id}>
                         
-                        <td className='p-2'>
+                        <td className='p-2 '>
                               
                                 <div className="font-bold flex gap-2">
                                 <img className='rounded-full h-8 w-8  object-cover cursor-pointer hover:opacity-90'

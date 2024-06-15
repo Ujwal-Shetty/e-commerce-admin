@@ -171,7 +171,7 @@ const handleRemoveImage = (index:any) => {
  
    
   return (
-    <header className='p-3 max-w-4xl mx-auto'>
+    <header className='p-3 max-w-4xl mx-auto sm:h-auto h-lvh'>
       <form 
       onSubmit={handleSubmit} 
       className='flex gap-4 flex-col sm:flex-row'>
@@ -322,7 +322,7 @@ const handleRemoveImage = (index:any) => {
  
             <button
                
-               className='p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
+               className='p-3 bg-slate-700 text-white rounded-full uppercase hover:opacity-95 disabled:opacity-80'
               >
                Add Product
             </button>
@@ -331,6 +331,9 @@ const handleRemoveImage = (index:any) => {
  
   
      </form>
+     <div className='h-16'>
+
+     </div>
     </header>
     
   
