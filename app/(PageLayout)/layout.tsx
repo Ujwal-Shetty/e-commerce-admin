@@ -34,10 +34,11 @@ export default  async function RootLayout({
           </div>
 
         <div className="w-full">
-          <div className="mt-3 mb-3 mr-3">
+          <div >
           <Navbar/>
           </div>
-          <div>
+
+          <div className="mt-28 sm:mt-0">
             {children}
           </div>
           <div className="h-20 w-full fixed bottom-0 p-2 sm:hidden block">

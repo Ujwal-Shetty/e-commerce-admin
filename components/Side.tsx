@@ -40,7 +40,7 @@ function Side() {
         },    
     ];
   return (
-    <div className='h-lvh w-72 bg-slate-700 rounded-xl flex flex-col items-center'>
+    <div className='h-lvh w-72 bg-slate-800 rounded-xl flex flex-col items-center'>
         <h1 className='w-full  h-12 flex justify-center  items-center cursor-pointer mb-16 pt-5 text-xl'>
          <span className='text-red-300'>ECOMMERCE</span>
          <span className='text-slate-100'>Admin</span>

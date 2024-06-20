@@ -102,10 +102,12 @@ export default function UpdateIntentory(props) {
                               </div>                
                             </div>
                             <div className='bg-black p-3 pt-2 pb-2 text-white rounded-full text-sm'>
+                            
                              <button 
                              onClick={()=>setUpdateToggle(true)}
                               >
-                              Update </button>
+                              Update 
+                              </button>
                             </div>
 
     </>

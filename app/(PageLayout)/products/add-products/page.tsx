@@ -7,12 +7,15 @@ import { app } from '@/libs/firebase';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
+
 function AddProducts() {
 
   const[categoryData,setCategoryData]=useState([])
   const[someData,setSomeData]=useState([])
-  const[selectedData,setSelectedData]=useState()
-  const [val,setVal]=useState([]); 
+ 
+  
+  const selectedData='rrrrrrrrrrrrrrrrrrrrrrrrrrrrr'
+  const filtered=someData.filter(sa=>sa.name===selectedData).map((res)=>res.property).map((rs)=>rs)
 
   const[varientData, setVarientData]=useState([])
   const[toggleDropDown,setToggleDropDown]=useState(false)
@@ -34,11 +37,13 @@ const [loading, setLoading] = useState(false);
 const [error, setError] = useState(false);
 
 const router=useRouter() 
-const filtered =someData.filter(sa=>sa.name===selectedData).map((res)=>res.property).map((rs)=>rs)
+
+
 
 
 console.log(filtered)
 console.log(formData)
+console.log(someData)
 
 formData.varients=["no varients",'']
 formData.regularPrice=+formData.regularPrice
@@ -168,6 +173,32 @@ const handleRemoveImage = (index:any) => {
           
        
      }
+
+     const handleCategoryChange=(e)=>{
+      setFormData({...formData,  CategoryName: e.target.value})
+      
+      
+     }
+
+     const handleAdd=()=>{  
+      const abc=[...val,[]]
+      setVal(abc)
+  }
+
+  const handleChangeInput=(onChangeValue,i)=>{
+   const inputdata=[...val]
+   inputdata[i]=onChangeValue.target.value;
+   setVal(inputdata)
+  }
+
+  const handleDelete=(i)=>{
+      const deletVal=[...val]
+      deletVal.splice(i,1)
+      setVal(deletVal)   
+  }
+
+
+
  
    
   return (
@@ -204,7 +235,7 @@ const handleRemoveImage = (index:any) => {
          <div>
              <p>Category</p>
              <select 
-             onChange={(e) => setFormData({...formData,  CategoryName: e.target.value})}
+             onChange={handleCategoryChange}
             
              id='CategoryName'
                 className='p-3 border border-gray-300 rounded-lg w-full'>
@@ -234,6 +265,63 @@ const handleRemoveImage = (index:any) => {
               
             <Popup trigger={toggleDropDown}
                setTrigger={setToggleDropDown}>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Property</td>
+                      
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {
+                      filtered.map(rs=>
+                        rs.map((res,index)=>
+                          <tr key={index}>
+                             <td>{res}</td>
+                             <td>
+                              <input
+                              type='text'/>
+                                <div className="flex flex-col gap-2">
+                 
+                 <div
+                  className=' text-center p-3 bg-transparent border-2 text-black rounded-full uppercase hover:opacity-95 disabled:opacity-80 w-full cursor-pointer'
+                  onClick={()=>handleAdd()}
+                 >
+                 Add Property
+                </div>
+ 
+                <div className="flex flex-col gap-2 ">
+                {val.map((data,i)=>{
+             return(
+                <div className="flex">
+                  <div className="w-full">
+                    <input 
+                     id="property"
+                     name='property'
+                     onChange={e=>handleChangeInput(e,i)}
+                     className='border p-3 rounded-l-full w-full' />
+                  </div>
+                     
+                  <div>
+                     <MdDeleteOutline className="text-3xl p-2 cursor-pointer w-full h-full border rounded-r-full hover:bg-red-500"
+                     onClick={()=>handleDelete(i)}/>
+                     </div>
+                     </div>
+             )
+         })}
+         </div>
+                 </div>
+                              
+                             </td>     
+                                
+                          </tr>
+                      )
+
+                     
+                    )}
+                  </tbody>
+                </table>
             
             </Popup>
             </div>

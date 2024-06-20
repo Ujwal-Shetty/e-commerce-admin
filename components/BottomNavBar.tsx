@@ -38,7 +38,7 @@ function BottomNavBar() {
         },    
     ];
   return (
-    <div className='  flex justify-center items-center p-2 h-full  rounded-xl bg-slate-600 shadow-lg'>
+    <div className='  flex justify-center items-center p-2 h-full  rounded-xl bg-slate-800 shadow-lg'>
        
          {navLink.map((herf)=>{
                 const isActive=pathname.startsWith(herf.link)
