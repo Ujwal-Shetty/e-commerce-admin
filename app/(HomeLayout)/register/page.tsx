@@ -7,9 +7,11 @@ import axios from "axios"
 import { FcGoogle } from "react-icons/fc";
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa6";
+import { useRouter } from 'next/navigation';
 
 
 export default function SignUp() {
+  const router=useRouter()
   const [showPassword,setShowPassword]=useState(false)
     const [data, setData] = useState({
         name: "",
@@ -22,6 +24,7 @@ export default function SignUp() {
         e.preventDefault()
         axios.post('/api/register', data)
         .then(() => alert('User has been registered!'))
+        .then(()=>router.push('/login'))
         .catch(() => alert('Something went wrong!'))
 
      }

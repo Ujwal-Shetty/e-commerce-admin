@@ -47,14 +47,14 @@ function AddCategory() {
      
    }
   return (
-    <div className="p-3">
+    <div className="p-5">
 
         <div className="flex justify-between items-center">
                     <h1 className="font-bold  text-2xl">Category</h1>
         </div>
         
-        <div className='flex flex-col justify-center items-center gap-12 h-96 overflow-auto '>
-           <h2 className="text-xl text-slate-700">Add category</h2>
+        <div className='flex flex-col justify-center items-center gap-12 pt-16 '>
+           
            <form onSubmit={handleSubmit}>
             <div className='flex flex-col gap-7 w-full'>
                 <div className='flex flex-col w-80'>

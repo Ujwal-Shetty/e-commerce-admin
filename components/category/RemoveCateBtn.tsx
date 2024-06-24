@@ -29,7 +29,7 @@ function RemoveCateBtn({id}) {
     
     <button onClick={removeCategory}>
     <MdDeleteOutline 
-        className='text-red-700 text-xl hover:cursor-pointer'
+        className='text-red-700 text-2xl hover:cursor-pointer'
         />
     </button>
     

@@ -65,10 +65,10 @@ const handleSubmit=(e)=>{
 
    
   return (
-    <main className="h-screen overflow-y-auto flex flex-col gap-14">
-        <h1 className="ml-4 text-2xl text-slate-700">Category</h1>
+    <main className="h-screen overflow-y-auto flex flex-col gap-14 p-5">
+         <h1 className="font-bold  text-2xl">Category</h1>
         <div className='flex flex-col justify-center items-center gap-5 '>
-           <h2 className="text-xl text-slate-700">Update category</h2>
+           <h2 className="text-xl font-bold text-slate-700">Update category</h2>
            <form onSubmit={handleSubmit}>
             <div className='flex flex-col gap-7 w-full'>
                 <div className='flex flex-col w-80'>
@@ -76,7 +76,7 @@ const handleSubmit=(e)=>{
                  <input
                   type='text'
                   placeholder='Category name'
-                  className='border p-3 rounded-lg'
+                  className='border p-3 rounded-full'
                   id='name'
                   name='name'
                   onChange={(e) => setData({...data, name: e.target.value})}
@@ -87,7 +87,7 @@ const handleSubmit=(e)=>{
                 <div className="flex flex-col gap-2">
                  
                 <div
-                 className=' text-center p-3 bg-transparent border-2 text-black rounded-lg uppercase hover:opacity-95 disabled:opacity-80 w-full cursor-pointer'
+                 className=' text-center p-3 bg-transparent border-2 text-black rounded-full uppercase hover:opacity-95 disabled:opacity-80 w-full cursor-pointer'
                  onClick={()=>handleAdd()}
                 >
                 Add Property
@@ -104,11 +104,11 @@ const handleSubmit=(e)=>{
                     name='property'
                     value={val[i]}
                     onChange={e=>handleChange(e,i)}
-                    className='border p-3 rounded-l-lg w-full' />
+                    className='border p-3 rounded-l-full w-full' />
                  </div>
                     
                  <div>
-                    <MdDeleteOutline className="text-3xl p-2 cursor-pointer w-full h-full border rounded-r-lg hover:bg-red-500"
+                    <MdDeleteOutline className="text-3xl p-2 cursor-pointer w-full h-full border rounded-r-full hover:bg-red-500"
                     onClick={()=>handleDelete(i)}/>
                     </div>
                     </div>
@@ -117,7 +117,7 @@ const handleSubmit=(e)=>{
         </div>
                 </div>
                 <button
-                 className='p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
+                 className='p-3 bg-black text-white rounded-full uppercase hover:opacity-95 disabled:opacity-80'
                 >
                 Update data
                </button>

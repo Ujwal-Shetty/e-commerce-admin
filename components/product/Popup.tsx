@@ -15,10 +15,8 @@ function Popup(props) {
              className='text-2xl text-red-500 hover:bg-red-500 hover:text-white'
              onClick={()=>props.setTrigger(false)}> 
            <FaRegWindowClose />
-         </button>
+      </button>
        </div>
-      
-       
         {props.children}
         </div>
     </div>

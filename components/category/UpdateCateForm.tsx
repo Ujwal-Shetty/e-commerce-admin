@@ -51,8 +51,8 @@ function UpdateCateForm({id,name,property}) {
      
    }
   return (
-    <main className="h-screen overflow-y-auto flex flex-col gap-14">
-        <h1 className="ml-4 text-2xl text-slate-700">Category</h1>
+    <div className="h-screen overflow-y-auto flex flex-col gap-14 ">
+         <h1 className="font-bold  text-2xl">Category</h1>
         <div className='flex flex-col justify-center items-center gap-5 '>
            <h2 className="text-xl text-slate-700">Update category</h2>
            <form onSubmit={handleSubmit}>
@@ -109,7 +109,7 @@ function UpdateCateForm({id,name,property}) {
             </div>
            </form>
         </div>
-    </main>
+    </div>
   )
 }
 

@@ -62,10 +62,10 @@ export default function UpdateIntentory(props) {
   
   return (
     <>
-    <div className={` flex absolute text-white w-72 justify-between bg-slate-700 rounded-full text-sm p-1 ${updateToggle ?'block':'hidden'}`}>
+    <div className={` flex absolute text-white sm:w-72 w-[83%]  justify-between right-9 sm:right-0  bg-slate-700 rounded-full text-sm  ${updateToggle ?'block':'hidden'}`}>
                               <form
                               onSubmit={handleSubmit}>
-                                <div className='flex'>
+                                <div className='flex '>
 
                                 <div className='flex p-2'>
                                  
@@ -100,8 +100,9 @@ export default function UpdateIntentory(props) {
                                <ImCancelCircle className='text-3xl text-red-400 pr-2' />
                               </button>
                               </div>                
-                            </div>
-                            <div className='bg-black p-3 pt-2 pb-2 text-white rounded-full text-sm'>
+           </div>
+
+           <div className='bg-black p-3 pt-2 pb-2 text-white rounded-full text-sm'>
                             
                              <button 
                              onClick={()=>setUpdateToggle(true)}

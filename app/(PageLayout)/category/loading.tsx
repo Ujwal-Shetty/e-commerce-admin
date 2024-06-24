@@ -16,7 +16,7 @@ function loading() {
                     </Link>
                   </div>
                 </div>
-                <div className='border-2 p-3 rounded-xl overflow-auto h-96 no-srcollbar'>
+             <div className='border-2 p-3 rounded-xl overflow-auto h-96 no-srcollbar sm:block hidden'>
                 <table className=" w-full ">
                 <thead className=' w-full justify-around  border-b-2'>
                 <tr className='w-full'>
@@ -59,6 +59,17 @@ function loading() {
                 </tbody>
                 </table>
     </div>
+
+    <div className='flex flex-col gap-4 sm:hidden'>
+    {Array.from({length:8}).map((_,index)=>(
+      <div className='h-32 w-full animate-pulse rounded-xl bg-slate-300'>
+
+      </div>
+    ))}
+
+    </div>
+    
+
     </div>
   )
 }

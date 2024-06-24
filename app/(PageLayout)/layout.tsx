@@ -8,6 +8,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import SignIn from '@/components/SignIn'
 import BottomNavBar from "@/components/BottomNavBar";
+import SearchBar from "@/components/SearchBar";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -34,11 +35,14 @@ export default  async function RootLayout({
           </div>
 
         <div className="w-full">
-          <div >
+          <div>
           <Navbar/>
           </div>
+          <div className="pt-20 p-4 sm:hidden block"> 
+            <SearchBar/>
+            </div>
 
-          <div className="mt-28 sm:mt-0">
+          <div className="">
             {children}
           </div>
           <div className="h-20 w-full fixed bottom-0 p-2 sm:hidden block">

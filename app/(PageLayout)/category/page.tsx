@@ -55,7 +55,7 @@ export default async function ProductssList({ searchParams }:{ searchParams :str
                    
                 </div>
 
-              <div className='border-2 p-3 rounded-xl overflow-auto h-96 no-srcollbar'>
+              <div className='border-2 p-3 rounded-xl overflow-auto h-96 no-srcollbar sm:block hidden'>
                 <table className=" w-full ">
                 <thead className=' w-full justify-around  border-b-2'>
                 <tr className=''>
@@ -119,6 +119,50 @@ export default async function ProductssList({ searchParams }:{ searchParams :str
                          
                 </tbody>
             </table>
+                </div>
+
+                <div className='sm:hidden flex gap-4 flex-col pb-16 '>
+                {category
+                  .filter((rs:any)=>{
+                    if(params===undefined){
+                      return rs
+                    }
+                    return params.toLowerCase() === '' ? rs:rs.name.toLowerCase().includes(params)
+                  })
+                  .map((rs:any) => (
+                    <div className='p-3 bg-slate-200 w-full rounded-xl flex flex-col gap-2'>
+
+                      <div className='flex truncate'>
+                         <div className='font-bold'>Category name : </div>
+                         <div className='ml-4'>{rs.name}</div> 
+                       </div>
+
+                      <div className='flex truncate'>
+                        <p className='font-bold'>Properties : </p>
+                         <p className='ml-14'>{rs.property.map((name,index)=>{return(<span className=''>{(index ?', ':'')+name}</span>)}
+                          )}</p> 
+                       </div>
+                     
+                      <div className='flex gap-5 justify-end p-2'>
+                          <div className='text-blue-700'>
+                          
+                            <FaRegEye  className='text-2xl hover:cursor-pointer'/>
+                           </div>
+                            <div>
+                            <Link href={`/category/update-category/${rs.id}`}>
+                                <FaEdit className='text-green-700 text-2xl hover:cursor-pointer'/>
+                              </Link>
+                           
+                            </div>
+                            <div>
+                            <RemoveCateBtn id={rs.id}/>
+                            </div>
+                            
+                          </div>
+                       
+
+                    </div>
+                  ))}
                 </div>
             
             </div>

@@ -19,19 +19,22 @@ function SearchBar() {
         e.preventDefault();
       const params = new URLSearchParams(searchParams);
        params.set('search',searchValue)
-       replace(`${pathname}?${params.toString()}`);
+      
+      
+          replace(`${pathname}?${params.toString()}`);
+        
 
     }
   return (
     <form
-    className='bg-slate-200 p-3 rounded-full flex items-center shadow-lg'
+    className='bg-slate-200 p-3 rounded-full flex items-center shadow-lg justify-between'
   >
     <input
       type='text'
       placeholder='Search...'
       id='search'
       onChange={(e)=>setSearchValue( e.target.value)}
-      className='bg-transparent focus:outline-none w-36 sm:w-64'
+      className='bg-transparent focus:outline-none sm:w-64 w-full'
     />
     <button 
     onClick={handleSearchParams}

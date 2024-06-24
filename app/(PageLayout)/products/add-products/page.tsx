@@ -12,6 +12,7 @@ function AddProducts() {
 
   const[categoryData,setCategoryData]=useState([])
   const[someData,setSomeData]=useState([])
+  const[val,setVal]=useState([])
  
   
   const selectedData='rrrrrrrrrrrrrrrrrrrrrrrrrrrrr'
@@ -213,10 +214,10 @@ const handleRemoveImage = (index:any) => {
         <input
              type='text'
              placeholder='Name'
-             className='border p-3 rounded-lg w-full'
+             className='border p-3 rounded-xl w-full'
              id='name'
              onChange={handleChange}
-             maxLength='62'
+             maxLength='100'
              minLength='10'
              required 
            />
@@ -258,7 +259,7 @@ const handleRemoveImage = (index:any) => {
          <div className='flex w-full'>
             <button 
             type='button'
-            className='p-3 bg-white text-green-800 border-2 border-green-800 rounded-lg uppercase hover:opacity-95 disabled:opacity-80 cursor-pointer text-center w-full'
+            className='p-3 bg-white text-green-800 border-2 border-green-800 rounded-full uppercase hover:opacity-95 disabled:opacity-80 cursor-pointer text-center w-full'
             onClick={()=>setToggleDropDown(true)}>
                Manage Varients
             </button>
@@ -410,7 +411,7 @@ const handleRemoveImage = (index:any) => {
  
             <button
                
-               className='p-3 bg-slate-700 text-white rounded-full uppercase hover:opacity-95 disabled:opacity-80'
+               className='p-3 bg-black text-white rounded-full uppercase hover:opacity-95 disabled:opacity-80'
               >
                Add Product
             </button>

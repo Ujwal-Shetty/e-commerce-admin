@@ -14,42 +14,44 @@ function BottomNavBar() {
         {
         
         link:'/dashboard',
-        icon:<RxDashboard className='mr-2' />
+        icon:<RxDashboard  />
         },
         {
         
         link:'/products',
-        icon:<BsGift className='mr-2'/>
+        icon:<BsGift />
         },
         {
         
         link:'/orders',
-        icon:<MdOutlineProductionQuantityLimits className='mr-2' />
+        icon:<MdOutlineProductionQuantityLimits  />
         },
         {
         
         link:'/intentory',
-        icon:<MdOutlineInventory2 className='mr-2' />
+        icon:<MdOutlineInventory2  />
         },
         {
         
         link:'/category',
-        icon:<MdOutlineCategory className='mr-2'/>
+        icon:<MdOutlineCategory/>
         },    
     ];
   return (
-    <div className='  flex justify-center items-center p-2 h-full  rounded-xl bg-slate-800 shadow-lg'>
+    <div className='  flex justify-evenly items-center p-2 h-full  rounded-xl bg-slate-800 shadow-lg'>
        
          {navLink.map((herf)=>{
                 const isActive=pathname.startsWith(herf.link)
                 return(
                     
-                   
-                         <Link
-                         href={herf.link}
-                         className={`${isActive ? 'bg-slate-500 text-white' :''} text-slate-200 w-full hover:bg-opacity-50 hover:bg-slate-300 hover:text-black text-center  h-full flex justify-center  items-center cursor-pointer  rounded-full`} >
+                  <Link href={herf.link}>
+
+                       <div 
+                       className={`${isActive ? 'bg-slate-500 text-white' :''} text-slate-200  hover:bg-opacity-50 hover:bg-slate-300 hover:text-black text-center  p-3 text-xl cursor-pointer flex items-center justify-center rounded-full h-12 w-12`}>
+                        {herf.icon}
+                        </div>
                     
-                     {herf.icon}
+                    
                     
                 
                 </Link>

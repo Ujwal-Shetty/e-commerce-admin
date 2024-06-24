@@ -31,9 +31,10 @@ export default function page() {
 
                     if(callback?.ok && !callback?.error) {
                       alert('Logged in successfully!')
+                      router.push('/dashboard')
                     }
                 } )
-                router.push('/dashboard')
+                
                  
                          
        }

@@ -1,4 +1,3 @@
-
 import bcrypt from 'bcrypt'
 import prisma from '@/prisma/prismadb'
 import { NextResponse } from 'next/server'
@@ -29,7 +28,8 @@ try{
             name,
             email,
             hashedPassword
-        }
+        },
+        include:{products:true}
     });
 
 

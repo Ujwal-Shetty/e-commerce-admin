@@ -1,7 +1,9 @@
+//@ts-nocheck
 import prisma from '@/prisma/prismadb'
 import { NextResponse } from 'next/server'
 import { connectToDatabase } from '@/libs/server-helpers';
-import { disconnect } from 'process';
+import { getServerSession } from "next-auth"
+import { authOptions } from '../auth/[...nextauth]/route';
 
 
 export async function POST(request:any){
@@ -34,8 +36,8 @@ try{
         }   
     });
 
-    
-
+    const session=await getServerSession(authOptions)
+    console.log(session)
     console.log(cat)
     
     const product = await prisma.product.create({
@@ -51,6 +53,11 @@ try{
             category:{
                 connect:{
                     id:cat.id
+                }
+            },
+            user:{
+                connect:{
+                    id:session.user.id
                 }
             }
         }
