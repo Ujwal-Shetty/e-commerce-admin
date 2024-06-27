@@ -7,10 +7,12 @@ import { connectToDatabase } from '@/libs/server-helpers';
 export const GET = async (request, { params }) => {
   try {
     const { id } = params;
+    console.log(id)
+    const catId=parseInt(id)
     await connectToDatabase();
     const category = await prisma.category.findUnique({
         where: {
-            id
+            id:catId
         }
     });
 
@@ -35,10 +37,11 @@ export const PUT = async (request, {params}) => {
       console.log( property)
 
       const {id} = params;
+      const catId=parseInt(id)
       await connectToDatabase();
       const updateCategory = await prisma.category.update({
           where: {
-              id
+              id:catId
           },
           data: {
               name,
@@ -64,11 +67,13 @@ export const PUT = async (request, {params}) => {
 export const DELETE = async (request,{ params }) => {
     try {
       const { id } = params;
+      const catId=parseInt(id)
+      console.log(catId)
       await connectToDatabase();
       
       await prisma.category.delete({
           where: {
-              id
+              id:catId
           }
       });
   

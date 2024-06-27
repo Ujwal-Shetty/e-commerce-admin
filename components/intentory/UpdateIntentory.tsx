@@ -17,6 +17,9 @@ export default function UpdateIntentory(props) {
     
     console.log(quantityValue)
 
+    const value =quantityValue.toString();
+    console.log(value)
+
    const handleIncrement = () =>{
       setQauantityvalue(
        quantityValue + 1
@@ -40,7 +43,7 @@ export default function UpdateIntentory(props) {
       const confirmed = confirm("Are you sure?");
       if (confirmed) {
           axios
-          .patch(`/api/products/${props.id}`,quantityValue)
+          .patch(`/api/products/${props.id}`,value)
           .then((res) => {
             router.refresh();
             console.log(res)
@@ -77,6 +80,7 @@ export default function UpdateIntentory(props) {
                                 <input
                   
                                   value={quantityValue}
+                                  min={0}
                                   type='number'
                                   id='intentoryQuantity'
                                   className='text-black w-12  outline-none text-center h-full'

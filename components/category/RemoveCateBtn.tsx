@@ -13,14 +13,13 @@ function RemoveCateBtn({id}) {
             axios
             .delete(`/api/category/${id}`)
             .then((res) => {
-              console.log(res);
+              router.refresh();
+              alert(res.data);
             })
             .catch((err) => {
-              console.log(err);
+              alert("This category contains products, Delete the products to continue")
             })
-            .finally(() => {
-              router.refresh();
-            });
+           
         }
     }
     

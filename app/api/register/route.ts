@@ -17,6 +17,8 @@ try{
         }
     });
 
+
+
     if(exist) {
         throw new Error('Email already exists')
     }
@@ -31,6 +33,8 @@ try{
         },
         include:{products:true}
     });
+
+    
 
 
 

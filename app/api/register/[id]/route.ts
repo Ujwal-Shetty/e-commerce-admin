@@ -8,12 +8,13 @@ export const GET = async (request, {params}) => {
     try {
 
         const {id} = params;
+        const userId=parseInt(id)
         console.log(id)
       await connectToDatabase();
 
       const user = await prisma.user.findUnique({
           where: {
-              id
+              id:userId
           } ,
         include:{products:true}
       });

@@ -46,10 +46,10 @@ function BottomNavBar() {
                     
                   <Link href={herf.link}>
 
-                       <div 
-                       className={`${isActive ? 'bg-slate-500 text-white' :''} text-slate-200  hover:bg-opacity-50 hover:bg-slate-300 hover:text-black text-center  p-3 text-xl cursor-pointer flex items-center justify-center rounded-full h-12 w-12`}>
+                     <div 
+                        className={`${isActive ? 'bg-slate-500 text-white' :''} text-slate-200  hover:bg-opacity-50 hover:bg-slate-300 hover:text-black text-center  p-3 text-xl cursor-pointer flex items-center justify-center rounded-full h-12 w-12`}>
                         {herf.icon}
-                        </div>
+                     </div>
                     
                     
                     

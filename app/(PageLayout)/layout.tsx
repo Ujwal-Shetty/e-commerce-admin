@@ -4,9 +4,6 @@ import "./globals.css";
 import Provider from "@/context/AuthProvider";
 import Navbar from "@/components/Navbar";
 import Side from "@/components/Side";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
-import SignIn from '@/components/SignIn'
 import BottomNavBar from "@/components/BottomNavBar";
 import SearchBar from "@/components/SearchBar";
 
@@ -45,7 +42,7 @@ export default  async function RootLayout({
           <div className="">
             {children}
           </div>
-          <div className="h-20 w-full fixed bottom-0 p-2 sm:hidden block">
+          <div className="h-24 w-full fixed bottom-0 p-2 sm:hidden block">
           <BottomNavBar/>
           </div>
             

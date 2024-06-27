@@ -26,6 +26,7 @@ const getProductsList =async ()=>{
 export default async function ProductssList({ searchParams }:{ searchParams :string}) {
 
  const {products}=await getProductsList()
+
  const params = searchParams.search
 
   return (

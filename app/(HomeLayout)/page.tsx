@@ -3,12 +3,10 @@ import Link from 'next/link'
 import React from 'react'
 import dashImage from '@/public/AdobeStock_549929578.png'
 import Image from 'next/image'
-import { getServerSession } from "next-auth"
-import { authOptions } from '../api/auth/[...nextauth]/route'
+
 
 async function  HomePage() {
-  const session=await getServerSession(authOptions)
-    console.log(session)
+  
   return (
     <div className='flex'>
       

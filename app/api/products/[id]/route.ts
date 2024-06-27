@@ -7,10 +7,12 @@ import { connectToDatabase } from '@/libs/server-helpers';
 export const GET = async (request, { params }) => {
   try {
     const { id } = params;
+    const proId=parseInt(id)
+    console.log(proId)
     await connectToDatabase();
     const product = await prisma.product.findUnique({
         where: {
-            id
+            id:proId
         }
     });
 
@@ -34,6 +36,7 @@ export const PUT = async (request, {params}) => {
       const { name,description,productImage,regularPrice,discountPrice,varients,CategoryName}:{ name:string,description:string,productImage:string[],regularPrice:number,discountPrice:number,varients:string,CategoryName:string } = body;
 
       const {id} = params;
+      const proId=parseInt(id)
       await connectToDatabase();
       console.log(id)
 
@@ -49,7 +52,7 @@ export const PUT = async (request, {params}) => {
     });
       const updateProduct = await prisma.product.update({
           where: {
-              id
+              id:proId
           },
           data: { 
           name,
@@ -85,12 +88,13 @@ export const PUT = async (request, {params}) => {
 export const DELETE = async (request,{ params }) => {
     try {
       const { id } = params;
+      const proId=parseInt(id)
+
       await connectToDatabase();
-      console.log(id)
-      
+    
       await prisma.product.delete({
           where: {
-              id
+              id:proId
           }
       });
   
@@ -103,18 +107,18 @@ export const DELETE = async (request,{ params }) => {
 export const PATCH = async (request,{ params }) => {
  
     try {
-      const quantityValue = await request.json();
-      
-      
-     
-      const { id } = params;
-      await connectToDatabase();
+      const value = await request.json();
+      const quantityValue=parseInt(value)
       console.log(quantityValue)
-      console.log(id)
-      
+      console.log(value)
+      const { id } = params;
+      const proId=parseInt(id)
+
+      await connectToDatabase();
+
       await prisma.product.update({
           where: {
-              id
+            id:proId
           },
           data:{
             intentoryQuantity:quantityValue

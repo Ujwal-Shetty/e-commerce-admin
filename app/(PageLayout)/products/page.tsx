@@ -31,16 +31,18 @@ const getUserListss =async ()=>{
 
 export default async function ProductssList({ searchParams }:{ searchParams :string}) {
   
-  
+ 
 
   
+  
 
+ const products=await getUserListss()
+ console.log(products)
 
- const users=await getUserListss()
- console.log(users)
-
- const getProducts=users.products
- console.log(getProducts)
+const getProducts=products.products
+ 
+console.log(getProducts)
+ 
 
  const params = searchParams.search
  console.log(params)
@@ -85,7 +87,7 @@ export default async function ProductssList({ searchParams }:{ searchParams :str
                         
                         <td className='p-2 truncate'>
                               
-                                <div className="font-bold flex gap-2">
+                                <div className="font-bold flex gap-2 truncate">
                                 <img className='rounded-full h-8 w-8  object-cover cursor-pointer hover:opacity-90'
                                  src={rs.productImage}
                                  alt=''
